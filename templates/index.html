@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Michoacana - Menú Interactivo</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div id="welcome-screen" class="container active">
+        <div class="logo-frame">
+            <img src="/static/images/logo michoacana.png" alt="Logo La Michoacana" class="logo">
+        </div>
+        <h1>¡Listo para comenzar con la recomendacion del dia de hoy😲!</h1>
+        <p>Responde el siguiente cuestionario </p>
+        
+        <button id="start-button">Comenzar</button>
+    </div>
+
+    <div id="quiz-screen" class="container hidden">
+        <h1>¡Responde para tu recomendación!</h1>
+        <div id="questions">
+        </div>
+        <button id="recommend-button" style="display: none;">Ver mi Recomendación</button>
+    </div>
+
+    <div id="recommendation-screen" class="container hidden">
+        <h1 id="recommendation-title"></h1>
+        <img id="recommended-product-img" src="" alt="Imagen del producto recomendado" class="product-img">
+        <h2 id="recommended-product-name"></h2>
+        <p id="recommended-product-price"></p>
+        <p id="recommendation-reason"></p>
+        <button id="restart-button" class="primary-button">Volver a Empezar</button>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* Importa las fuentes de Google Fonts para un diseño más aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Variables de colores de La Michoacana --- */
+:root {
+    --color-pink-primary: #E91E63; /* Rosa frambuesa fuerte */
+    --color-pink-light: #F48FB1;   /* Rosa chicle */
+    --color-background-dark: #A13854; /* Un rosa oscuro y lujoso */
+    --color-background-light: #FFCDD2; /* Un rosa más claro y cálido */
+    --color-container-bg: #FDF5E6; /* Color cremita para la tarjeta */
+    --color-button-bg: #F8BBD0;    /* Rosa muy claro para los botones de opción */
+    --color-white: #FFFFFF;
+    --color-black: #212121;
+    --color-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estilos generales y del cuerpo de la página --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Fondo con degradado más dramático y oscuro */
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-pink-primary) 50%, var(--color-background-light) 100%);
+    color: var(--color-black);
+    text-align: center;
+    transition: background 0.5s ease;
+}
+
+/* --- Contenedor principal de la aplicación --- */
+.container {
+    width: 90%;
+    max-width: 500px;
+    background-color: var(--color-container-bg);
+    padding: 40px;
+    border-radius: 20px;
+    /* Box-shadow para el contorno resaltado y una sombra normal */
+    box-shadow: 0 0 20px 8px var(--color-pink-primary), 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Estilos de las pantallas --- */
+.container.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.container.active {
+    display: flex;
+    animation: fadeInScale 0.6s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* --- Títulos y subtítulos --- */
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--color-pink-primary);
+    font-size: 2.8em;
+    margin-bottom: 5px;
+    /* Sombra para las letras */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+p {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: var(--color-black);
+    font-weight: 600; /* Hace el texto más negrito */
+}
+
+/* --- Estilos para botones --- */
+button {
+    background-color: var(--color-pink-primary);
+    color: var(--color-white);
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px var(--color-shadow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: var(--color-black);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+.option-button {
+    background-color: var(--color-button-bg);
+    color: var(--color-black);
+    border: 2px solid var(--color-pink-primary);
+    padding: 18px;
+    border-radius: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.option-button:hover {
+    background-color: var(--color-pink-light);
+    transform: translateY(-2px);
+}
+
+.option-button.selected {
+    background-color: var(--color-pink-primary);
+    color: var(--color-white);
+    transform: scale(1.05);
+    border-color: var(--color-pink-primary);
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- Estilos para la cuadrícula de opciones y el logo --- */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Nuevo estilo para el marco del logo */
+.logo-frame {
+    background-color: var(--color-container-bg);
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Se quita la animación de "pulse" del logo y se ajusta el margen */
+.logo {
+    max-width: 150px;
+    height: auto;
+    animation: none;
+    margin-bottom: 0;
+}
+
+/* --- Estilos para la pantalla de bienvenida y el código QR --- */
+#welcome-screen .logo {
+    margin-bottom: 10px;
+}
+
+#welcome-screen h1 {
+    margin-bottom: 5px;
+}
+
+.qr-code {
+    max-width: 250px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    transition: transform 0.3s ease;
+}
+
+/* --- Estilos para la pantalla de recomendación --- */
+.product-img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 15px;
+    border: 5px solid var(--color-pink-primary);
+    margin-top: 20px;
+    box-shadow: 0 5px 15px var(--color-shadow);
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+#recommendation-screen h2 {
+    color: var(--color-pink-primary);
+    font-size: 1.8em;
+    margin-top: 15px;
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Contenedor del texto para controlar el "typing" */
+#recommendation-text-container {
+    min-height: 100px;
+    margin: 10px 0;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Clases para el efecto de "typing" */
+.typing-text-container {
+    display: block;
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.typing-text {
+    overflow: hidden;
+    border-right: .15em solid var(--color-black);
+    white-space: nowrap;
+    display: inline-block;
+    animation: blink-caret .75s step-end infinite;
+}
+
+/* Animación de cursor parpadeante */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--color-black); }
+}
