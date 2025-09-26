@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/recommend', {
+            const response = await fetch('/recommend', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -138,4 +138,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Muestra la pantalla de bienvenida al cargar la página
     welcomeScreen.classList.add('active');
+
 });
