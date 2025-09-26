@@ -1,10 +1,13 @@
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory,render_template
 from flask_cors import CORS
 import requests
 import random
 
 app = Flask(__name__, static_folder='static')
 CORS(app)
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 OPENWEATHERMAP_API_KEY = "f4a1438eb714927086d43d404e975cc3"
 
@@ -554,4 +557,5 @@ def recommend_product():
     return jsonify(recommendation)
 
 if __name__ == '__main__':
+
     app.run(debug=True)
